@@ -11,5 +11,11 @@ describe(`Landing Page -> Login Test Cases`, () => {
     email.should("be.visible");
     email.should("have.attr", "type", "email");
     email.should("have.attr", "placeholder", "Email Address");
+
+    //Check Password
+    const password = cy.get("input[name='password']");
+    password.should("be.visible");
+    password.should("have.attr", "type", "password");
+    password.should("have.attr", "placeholder", "Password");
   });
 });
