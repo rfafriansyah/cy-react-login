@@ -4,4 +4,12 @@ describe(`Landing Page -> Login Test Cases`, () => {
     cy.title().should("eq", "React Gallery");
     cy.contains("Hello Again!");
   });
+
+  it(`Contains Email and Password input, and login button`, () => {
+    //Check Email
+    const email = cy.get("input[name='email']");
+    email.should("be.visible");
+    email.should("have.attr", "type", "email");
+    email.should("have.attr", "placeholder", "Email Address");
+  });
 });
