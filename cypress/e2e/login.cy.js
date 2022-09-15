@@ -17,5 +17,11 @@ describe(`Landing Page -> Login Test Cases`, () => {
     password.should("be.visible");
     password.should("have.attr", "type", "password");
     password.should("have.attr", "placeholder", "Password");
+
+    //Check Login Button
+    const button = cy.get("button");
+    button.contains("Login");
+    button.should("have.css", "background-color", "rgb(79, 70, 229)");
+    button.should("have.css", "color", "rgb(255, 255, 255)");
   });
 });
