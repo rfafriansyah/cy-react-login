@@ -25,7 +25,20 @@ describe(`Landing Page -> Login Test Cases`, () => {
     button.should("have.css", "color", "rgb(255, 255, 255)");
   });
 
-  it("Do Login with wrong values", () => {
+  it("Do Login with null values", () => {
+    const button = cy.get("button");
+    button.click();
+    cy.on("window:alert", (t) => {
+      expect(t).to.contains("login failed");
+    });
+  });
+  it("Do Login with Wrong Values", () => {
+    const email = cy.get("input[name='email']");
+    email.type("wront@react.test");
+
+    const password = cy.get("input[name='password']");
+    password.type("password");
+
     const button = cy.get("button");
     button.click();
     cy.on("window:alert", (t) => {
